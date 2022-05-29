@@ -3,11 +3,11 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: postgres-claim1
-  name: postgres-claim1
+    io.kompose.service: {{ .Chart.Name }}-data
+  name: {{ .Chart.Name }}-data
 spec:
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Mi

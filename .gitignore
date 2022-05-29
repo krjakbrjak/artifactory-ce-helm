@@ -1,3 +1,2 @@
-charts
-kompose
-
+*.sw[o,p]
+.venv

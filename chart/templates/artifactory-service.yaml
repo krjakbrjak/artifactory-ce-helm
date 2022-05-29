@@ -6,14 +6,17 @@ metadata:
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
-    io.kompose.service: artifactory
-  name: artifactory
+    io.kompose.service: {{ .Chart.Name }}
+  name: {{ .Chart.Name }}
 spec:
   ports:
     - name: "8081"
       port: 8081
       targetPort: 8081
+    - name: "8082"
+      port: 8082
+      targetPort: 8082
   selector:
-    io.kompose.service: artifactory
+    io.kompose.service: {{ .Chart.Name }}
 status:
   loadBalancer: {}

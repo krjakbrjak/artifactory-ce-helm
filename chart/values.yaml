@@ -1,0 +1,10 @@
+db:
+  serviceName: postgres
+  port: 5432
+  databaseName: artifactory
+  user: artifactory
+  password: password
+
+tls:
+  enabled: false
+  host: example-address.com

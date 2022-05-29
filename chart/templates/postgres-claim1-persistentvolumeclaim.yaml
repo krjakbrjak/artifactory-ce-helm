@@ -3,11 +3,11 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: artifactory-data
-  name: artifactory-data
+    io.kompose.service: {{ .Values.db.serviceName }}-claim1
+  name: {{ .Values.db.serviceName }}-claim1
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
       storage: 100Mi

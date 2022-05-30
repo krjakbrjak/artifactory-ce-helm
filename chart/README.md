@@ -1,0 +1,1 @@
+This chart is based on the [official docker-compose](https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/cpp/ce/docker/jfrog-artifactory-cpp-ce/[RELEASE]/jfrog-artifactory-cpp-ce-[RELEASE]-compose.tar.gz)

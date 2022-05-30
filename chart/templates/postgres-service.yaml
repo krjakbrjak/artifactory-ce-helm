@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: ./kompose convert -c
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: {{ .Values.db.serviceName }}
+  name: {{ .Values.db.serviceName }}
+spec:
+  ports:
+    - name: "{{ .Values.db.port }}"
+      port: {{ .Values.db.port }}
+      targetPort: {{ .Values.db.port }}
+  selector:
+    io.kompose.service: {{ .Values.db.serviceName }}
+status:
+  loadBalancer: {}

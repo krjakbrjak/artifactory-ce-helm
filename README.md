@@ -5,7 +5,7 @@ This HELM chart is based on the [official docker-compose](https://releases.jfrog
 ## Install
 
 ```shell
-helm install artifactory-cpp-ce --namespace artifactory-cpp-ce
+helm install artifactory-cpp-ce --namespace artifactory-cpp-ce ./chart --create-namespace
 ```
 
 And then it can be accessed with:

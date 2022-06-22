@@ -8,3 +8,6 @@ db:
 tls:
   enabled: false
   host: example-address.com
+
+artifactory:
+  path: artifactory

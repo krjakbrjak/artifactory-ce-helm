@@ -41,7 +41,7 @@ spec:
             - name: JF_SHARED_DATABASE_TYPE
               value: postgresql
             - name: JF_SHARED_DATABASE_URL
-              value: jdbc:postgresql://{{ .Values.db.serviceName }}.artifactory-cpp-ce.svc.cluster.local:{{ .Values.db.port }}/{{ .Values.db.databaseName }}
+              value: jdbc:postgresql://{{ .Values.db.serviceName }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.db.port }}/{{ .Values.db.databaseName }}
             - name: JF_SHARED_DATABASE_USERNAME
               value: {{ .Values.db.user }}
             - name: JF_SHARED_NODE_ID
@@ -56,7 +56,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: "metadata.name"
-          image: releases-docker.jfrog.io/jfrog/artifactory-cpp-ce:{{ .Chart.Version }}
+          image: releases-docker.jfrog.io/jfrog/artifactory-{{ .Values.artifactory.product }}:{{ .Chart.Version }}
           name: {{ .Chart.Name }}
           ports:
             - containerPort: 8081

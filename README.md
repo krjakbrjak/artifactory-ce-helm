@@ -8,6 +8,8 @@ This HELM chart is based on the [official docker-compose](https://releases.jfrog
 helm install artifactory-cpp-ce --namespace artifactory-cpp-ce ./chart --create-namespace
 ```
 
+By default, `Artifactory Community Edition for C and C++` will be installed. One can choose different products. For example, `--set artifactory.product=jcr` will install `JFrog Container Registry`.
+
 And then it can be accessed with:
 ```shell
 curl https://example.host/ -Lkv --resolve example.host:443:127.0.0.1

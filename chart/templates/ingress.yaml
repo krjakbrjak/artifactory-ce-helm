@@ -4,11 +4,6 @@ metadata:
   name: {{ .Chart.Name }}-ingress
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-{{- if and .Values.tls.enabled .Values.tls.host }}
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      more_set_input_headers "X-Artifactory-Override-Base-Url: https://{{ .Values.tls.host }}/{{ .Values.artifactory.path | default "artifactory" }}/artifactory";
-{{- end }}
 spec:
 {{- if .Values.tls.enabled }}
   tls:
@@ -22,7 +17,7 @@ spec:
   - http:
       paths:
         - pathType: Prefix
-          path: /{{ .Values.artifactory.path | default "artifactory" }}(/|$)(.*)
+          path: /
           backend:
             service:
               name: {{ .Chart.Name }}

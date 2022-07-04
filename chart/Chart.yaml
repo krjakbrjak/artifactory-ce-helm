@@ -1,5 +1,5 @@
-name: artifactory-ce
-description: Helm Chart for Artifactory C++ CE
+name: artifactory
+description: Helm Chart for Artifactory products
 version: 7.38.10
 apiVersion: v1
 home: https://jfrog.com/artifactory/

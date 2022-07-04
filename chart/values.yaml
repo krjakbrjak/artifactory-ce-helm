@@ -10,4 +10,4 @@ tls:
   host: example-address.com
 
 artifactory:
-  path: artifactory
+  product: cpp-ce

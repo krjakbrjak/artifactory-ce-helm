@@ -1,0 +1,30 @@
+{{- if .Values.tls.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Chart.Name }}-certificate
+spec:
+  secretName: {{ .Chart.Name }}-tls
+
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  subject:
+    organizations:
+      - {{ .Values.tls.cert.organization }}
+  commonName: {{ .Values.tls.host }}
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  commonName: {{ .Values.tls.host }}
+  dnsNames:
+    - {{ .Values.tls.host }}
+  issuerRef:
+    name: {{ .Values.tls.cert.name }}
+    kind: Issuer
+    group: cert-manager.io
+{{- end }}

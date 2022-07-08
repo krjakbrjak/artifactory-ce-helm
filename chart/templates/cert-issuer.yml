@@ -1,0 +1,17 @@
+{{- if .Values.tls.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ .Values.tls.cert.name }}
+spec:
+  acme:
+    server: {{ .Values.tls.cert.server }}
+    email: {{ .Values.tls.cert.email }}
+    privateKeySecretRef:
+      name: {{ .Values.tls.cert.name }}
+    solvers:
+      - http01:
+          ingress:
+            class: public
+{{- end }}
+              

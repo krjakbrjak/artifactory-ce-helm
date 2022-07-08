@@ -8,6 +8,11 @@ db:
 tls:
   enabled: false
   host: example-address.com
+  cert:
+    email: user@example.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    name: letsencrypt-staging
+    organization: Example Organization
 
 artifactory:
   product: cpp-ce
